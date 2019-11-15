@@ -1,0 +1,29 @@
+{% if blog_post %}
+	<div class="container">
+		<div class="card-body mt-2 mb-2">
+			<a href="{% url 'blog:detail' post.slug %}">
+				<h3 class="card-title">{{blog_post.title}}</h3>
+			</a>
+			<a href="{% url 'blog:detail' post.slug %}">
+				<img class="mt-1 mb-3 card-img-top img-thumbnail" src="{{blog_post.image.url}}">
+			</a>
+			<!-- Tomar cuidado com |safe| -->
+			<p class="card-text">{{blog_post.body|safe|truncatechars:250}}</p>
+			{% if blog_post.author == request.user %}
+				<a href="{% url 'blog:edit' blog_post.slug %}" class="btn btn-secondary">Update</a>
+			{% endif %}
+		</div>
+		<div class="card-footer text-muted mb-3">
+		  Updated on <b>{{blog_post.date_updated}}</b> by <b>{{blog_post.author}}</b>
+		</div>
+	</div>
+{% else %}
+	<div class="container">
+		<div class="card m-auto">
+			<div class="card-body mt-2 mb-2">
+				<h2 class="card-title">No Results</h2>
+				<p>There were no results matching your search: "{{ query }}".</p>
+			</div>
+		</div>
+	</div>
+{% endif %}

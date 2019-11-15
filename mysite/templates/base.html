@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Django Blog App</title>
+	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style type="text/css">
+       .main {
+	    	min-height: 100vh;
+	    	height: 100%;
+    	}
+    	.form-signin {
+		  width: 100%;
+		  max-width: 330px;
+		  padding: 15px;
+		  margin: auto;
+		}
+		.error {
+			color: red;
+		}
+		.form-signin .form-control {
+			position: relative;
+			box-sizing: border-box;
+			height: auto;
+			padding: 10px;
+			font-size: 16px;
+		}
+		h5 {
+			color:black;
+		}
+		.text-dark {
+			color:black !important;
+		}
+		@media (max-width: 768px) { 
+			.right-column{
+				margin-left: 0px;
+			}
+		}
+		@media (min-width: 768px) { 
+			.right-column{
+				margin-left: 20px;
+			}
+		}
+		.blog-post-container {
+			background-color: #303030;
+			margin-bottom: 20px;
+			width: 100%;
+			border: 1px solid #444;
+		}
+		.create-post-bar {
+			background-color: #303030;
+			margin-bottom:20px;
+			border: 1px solid #444;
+		}
+		.left-column {
+			padding:0px;
+		}
+		.right-column {
+			padding:0px;
+		}
+		textarea {
+			resize: none;
+		}
+		.blog-posts {
+			max-width: 500px;
+			width: 100%;
+			margin: auto;
+		}
+		.card {
+			max-width: 700px;
+		}
+		.center-block {
+		    display: block;
+		    margin-left: auto;
+		    margin-right: auto;
+		    border: 1px solid #444;
+ 		}
+		.lead{
+			font-size: 17px;
+		}
+		.search-bar {
+			max-width: 320px;
+			width: 100%;
+			border-left: 4px solid #444;
+			background-color: gray;
+			border-radius: 5px;
+		}
+		b {
+			color:#00bc8c;
+		}
+		.well{
+			background-color: #303030 !important;
+		}
+		.btn-warning {
+			background-color:#00bc8c !important;
+			border: none;
+		}
+		.head-color{
+			color:#00bc8c;
+		}
+    </style>
+</head>
+
+<body>
+	{% include 'snippets/header.html' %}
+	<!-- Body -->
+	<div class="main">
+		{% block content %}
+		{% endblock content %}
+	</div>
+	{% include 'snippets/footer.html' %}
+</body>
+
+</html>
