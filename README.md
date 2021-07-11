@@ -1,6 +1,6 @@
 # Django Blog
 
-Full Featured Blog made with Django-Python
+Full Featured Blog made with Django
 
 ## Features Included
 
@@ -18,7 +18,7 @@ Full Featured Blog made with Django-Python
 ### Clone the Repository
 
 ```
-git clone https://github.com/the-akira/django-blog.git
+git clone https://github.com/the-akira/Django-Blog.git
 ```
 
 ### Inside the Main Directory

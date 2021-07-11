@@ -7,47 +7,46 @@ from rest_framework.authtoken.models import Token
 
 @api_view(['POST',])
 def registration_view(request):
-	if request.method == 'POST':
-		serializer = RegistrationSerializer(data=request.data)
-		data = {}
-		if serializer.is_valid():
-			account = serializer.save()
-			data['response'] = 'successfully registered a new user'
-			data['email'] = account.email
-			data['email'] = account.username
-			token = Token.objects.get(user=account).key 
-			data['token'] = token 
+    if request.method == 'POST':
+        serializer = RegistrationSerializer(data=request.data)
+        data = {}
+        if serializer.is_valid():
+            account = serializer.save()
+            data['response'] = 'successfully registered a new user'
+            data['email'] = account.email
+            data['email'] = account.username
+            token = Token.objects.get(user=account).key 
+            data['token'] = token 
 
-		else: 
-			data = serializer.errors
-		return Response(data)
+        else: 
+            data = serializer.errors
+        return Response(data)
 
 @api_view(['GET',])
 @permission_classes((IsAuthenticated,))
 def acccount_properties_view(request):
-	try:
-		account = request.user 
-	except Account.DoestNotExist:
-		return Response(status=status.HTTP_404_NOT_FOUND)
+    try:
+        account = request.user 
+    except Account.DoestNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
-	if request.method == 'GET':
-		serializer = AccountPropertiesSerializer(account)
-		return Response(serializer.data)
+    if request.method == 'GET':
+        serializer = AccountPropertiesSerializer(account)
+        return Response(serializer.data)
 
 @api_view(['PUT',])
 @permission_classes((IsAuthenticated,))
 def update_account_view(request):
-	try:
-		account = request.user 
-	except Account.DoestNotExist:
-		return Response(status=status.HTTP_404_NOT_FOUND)
+    try:
+        account = request.user 
+    except Account.DoestNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
-	if request.method == 'PUT':
-		serializer = AccountPropertiesSerializer(account, data=request.data)
-		data = {}
-		if serializer.is_valid():
-			serializer.save()
-			data['response'] = 'Account update success'
-			return Response(data=data)
-		return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
-
+    if request.method == 'PUT':
+        serializer = AccountPropertiesSerializer(account, data=request.data)
+        data = {}
+        if serializer.is_valid():
+            serializer.save()
+            data['response'] = 'Account update success'
+            return Response(data=data)
+        return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)

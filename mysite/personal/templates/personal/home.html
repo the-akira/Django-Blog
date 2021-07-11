@@ -1,53 +1,53 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-	<div class="top-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-	  <h1 class="display-4 head-color">HAL 9000</h1>
-	  <p class="lead">Blog desenvolvido com o Python framework Django!</p>
-	</div>
+    <div class="top-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 head-color">HAL 9000</h1>
+        <p class="lead">Blog desenvolvido com o Python framework Django!</p>
+    </div>
 
-	<div class="container">
-		<div class="row">
-			<!-- blog feed -->
-			<div class="left-column col-lg-6 offset-lg-1">
-				<!-- Top 'create post' bar -->
-				<div class="d-lg-none mb-3">
-					<div class="card m-auto d-flex flex-column p-3">
-						<img class="img-fluid d-block m-auto pb-2 rounded-circle" src="{% static '132014_0.jpg' %}" width="135" height="135">
-						<p class="lead">In this course you'll learn how to build a simple blog with user registration and blog CRUD functionality. Django is a powerful framework and you'll see why in this course.</p>
-						<p class="m-auto"><a class="btn btn-secondary" href="{% url 'blog:create' %}">Create post</a></p>
-					</div>
-				</div>
-				<!-- end Top 'create post' bar -->
-				<!-- Blog posts-->
-				{% if blog_posts %}
-					{% for post in blog_posts %}
-						<div class="blog-post-container">
-							{% include 'blog/snippets/blog_post_snippet.html' with blog_post=post %}
-						</div>
-					{% endfor %}
-				{% else %}
-					<div class="blog-post-container">
-						{% include 'blog/snippets/blog_post_snippet.html' with query=query %}
-					</div>
-				{% endif %}
-				<!-- End Blog posts-->
-				{% include 'blog/snippets/blog_post_pagination.html' with blog_posts=blog_posts %}
-			</div>
-			<!-- end blog feed -->
+    <div class="container">
+        <div class="row">
+            <!-- blog feed -->
+            <div class="left-column col-lg-6 offset-lg-1">
+                <!-- Top 'create post' bar -->
+                <div class="d-lg-none mb-3">
+                    <div class="card m-auto d-flex flex-column p-3">
+                        <img class="img-fluid d-block m-auto pb-2 rounded-circle" src="{% static '132014_0.jpg' %}" width="135" height="135">
+                        <p class="lead">In this course you'll learn how to build a simple blog with user registration and blog CRUD functionality. Django is a powerful framework and you'll see why in this course.</p>
+                        <p class="m-auto"><a class="btn btn-secondary" href="{% url 'blog:create' %}">Create post</a></p>
+                    </div>
+                </div>
+                <!-- end Top 'create post' bar -->
+                <!-- Blog posts-->
+                {% if blog_posts %}
+                    {% for post in blog_posts %}
+                        <div class="blog-post-container">
+                            {% include 'blog/snippets/blog_post_snippet.html' with blog_post=post %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="blog-post-container">
+                        {% include 'blog/snippets/blog_post_snippet.html' with query=query %}
+                    </div>
+                {% endif %}
+                <!-- End Blog posts-->
+                {% include 'blog/snippets/blog_post_pagination.html' with blog_posts=blog_posts %}
+            </div>
+            <!-- end blog feed -->
 
-			<!-- Right 'create post' column  -->
-			<div class="right-column col-lg-4 d-lg-flex d-none flex-column">
+            <!-- Right 'create post' column  -->
+            <div class="right-column col-lg-4 d-lg-flex d-none flex-column">
 
-				<div class="card create-post-bar d-flex flex-column p-3">
-					<img class="img-fluid d-block m-auto pb-2 rounded-circle" src="{% static '132014_0.jpg' %}" width="135" height="135">
-					<p class="lead">In this course you'll learn how to build a simple blog with user registration and blog CRUD functionality. Django is a powerful 
+                <div class="card create-post-bar d-flex flex-column p-3">
+                    <img class="img-fluid d-block m-auto pb-2 rounded-circle" src="{% static '132014_0.jpg' %}" width="135" height="135">
+                    <p class="lead">In this course you'll learn how to build a simple blog with user registration and blog CRUD functionality. Django is a powerful 
 	  					framework and you'll see why in this course.</p>
-					<p class="m-auto"><a class="btn btn-warning" href="{% url 'blog:create' %}">Create post</a></p>
-				</div>
+                    <p class="m-auto"><a class="btn btn-warning" href="{% url 'blog:create' %}">Create post</a></p>
+                </div>
 			
-			</div>
-			<!-- end Right 'create post' column  -->
-		</div>
-	</div>
+            </div>
+            <!-- end Right 'create post' column  -->
+        </div>
+    </div>
 {% endblock content %}

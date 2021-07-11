@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<br>
-	<div class="container">
-		<div class="card m-auto">
-			<div class="card-body my-2">
-				<h2 class="card-title head-color">{{ blog_post.title }}</h2>
-				<img class="card-img-top mb-3 img-thumbnail" src="{{ blog_post.image.url }}">
-				<p class="card-text">{{ blog_post.body|safe }}</p>
-				{% if blog_post.author == request.user %}
-					<a href="{% url 'blog:edit' blog_post.slug %}" class="btn btn-secondary">Update</a>
-				{% endif %}
-			</div>
-			<div class="card-footer text-muted">
-				Updated on <b>{{ blog_post.date_updated }}</b> by <b>{{ blog_post.author }}</b>
-			</div>
-		</div>
-	</div>
-	<br>
+    <br>
+    <div class="container">
+        <div class="card m-auto">
+            <div class="card-body my-2">
+                <h2 class="card-title head-color">{{ blog_post.title }}</h2>
+                <img class="card-img-top mb-3 img-thumbnail" src="{{ blog_post.image.url }}">
+                <p class="card-text">{{ blog_post.body|safe }}</p>
+                {% if blog_post.author == request.user %}
+                    <a href="{% url 'blog:edit' blog_post.slug %}" class="btn btn-secondary">Update</a>
+                {% endif %}
+            </div>
+            <div class="card-footer text-muted">
+                Updated on <b>{{ blog_post.date_updated }}</b> by <b>{{ blog_post.author }}</b>
+            </div>
+        </div>
+    </div>
+    <br>
 {% endblock content %}
