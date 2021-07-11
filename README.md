@@ -1,6 +1,6 @@
 # Django Blog
 
-Full Featured Blog made with Django
+Full Featured Blog made with Django.
 
 ## Features Included
 
